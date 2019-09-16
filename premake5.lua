@@ -33,12 +33,12 @@ project_name = "krkrsteam"
 
 		configuration "Debug"
 			defines     "_DEBUG"
-			flags       { "Symbols" }
+			symbols	"On"
 			targetsuffix "-d"
 
 		configuration "Release"
 			defines     "NDEBUG"
-			flags       { "Optimize" }
+			optimize "On"
 
 	project (project_name)
 		targetname  (project_name)
