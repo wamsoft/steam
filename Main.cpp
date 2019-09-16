@@ -7,6 +7,20 @@
 #include <steam_api.h>
 #pragma comment(lib,"steam_api.lib")
 
+//ライブラリ互換がロストしてるようなので仮対策・機能的に無効かどうかは不明
+
+#ifndef BroadcastUploadStart_t
+STEAM_CALLBACK_BEGIN(BroadcastUploadStart_t, k_iClientVideoCallbacks + 4)
+STEAM_CALLBACK_END(0)
+#endif
+
+#ifndef BroadcastUploadStop_t
+STEAM_CALLBACK_BEGIN(BroadcastUploadStop_t, k_iClientVideoCallbacks + 5)
+STEAM_CALLBACK_MEMBER(0, EBroadcastUploadResult, m_eResult)
+STEAM_CALLBACK_END(1)
+#endif
+
+
 // ttstrをUTF8文字列へ変換
 std::string
 convertTtstrToUtf8String(ttstr &buf)
